@@ -1,0 +1,270 @@
+:root {
+    /* Paleta de Cores Escura e Tecnológica */
+    --aws-deep-purple: #1a0f3d;
+    --aws-dark-blue: #0d0d1f;
+    --aws-cyan: #00f2fe; /* Azul Neon */
+    
+    /* Fundo Degradê Radial Profundo */
+    --bg-gradient: radial-gradient(circle at center, var(--aws-deep-purple) 0%, var(--aws-dark-blue) 100%);
+    
+    /* Cores de Texto */
+    --primary-text: #ffffff;
+    --secondary-text: rgba(255, 255, 255, 0.85);
+    --muted-text: rgba(255, 255, 255, 0.5);
+    
+    /* Componentes */
+    --form-bg: rgba(20, 20, 32, 0.85);
+    --card-bg: rgba(12, 12, 22, 0.95);
+    --border-subtle: rgba(255, 255, 255, 0.12);
+    
+    /* Status e Destaques */
+    --success-color: #2ecc71;
+    --discount-bg: #ffc107;
+    --discount-text: #5c4300;
+
+    --border-radius: 12px;
+    --shadow-heavy: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+body {
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    background: var(--bg-gradient);
+    background-attachment: fixed;
+    color: var(--primary-text);
+    margin: 0;
+    padding: 40px 20px;
+    min-height: 100vh;
+    box-sizing: border-box;
+}
+
+/* Header/Título Simples */
+.header-container {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.header-container h1 {
+    font-size: 2.8rem;
+    margin: 0;
+    font-weight: 800;
+    letter-spacing: 1px;
+    color: var(--primary-text);
+}
+
+.header-container p {
+    font-size: 1.1rem;
+    color: var(--muted-text);
+    margin-top: 8px;
+}
+
+/* Grid Principal */
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 380px 1fr;
+    gap: 30px;
+}
+
+@media (max-width: 850px) {
+    .container {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ================= FORMULÁRIO ================= */
+.form-section {
+    background: var(--form-bg);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 30px;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--border-subtle);
+    box-shadow: var(--shadow-heavy);
+    height: fit-content;
+}
+
+h2 {
+    margin-top: 0;
+    color: var(--primary-text);
+    font-weight: 700;
+    letter-spacing: 1px;
+    font-size: 1.15rem;
+    border-bottom: 2px solid var(--aws-cyan);
+    padding-bottom: 12px;
+    margin-bottom: 25px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--secondary-text);
+}
+
+input[type="text"],
+input[type="number"] {
+    width: 100%;
+    padding: 12px 15px;
+    background: rgba(10, 10, 20, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 8px;
+    box-sizing: border-box;
+    font-size: 0.95rem;
+    color: var(--primary-text);
+    transition: all 0.3s ease;
+}
+
+input[type="text"]::placeholder,
+input[type="number"]::placeholder {
+    color: var(--muted-text);
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus {
+    outline: none;
+    border-color: var(--aws-cyan);
+    box-shadow: 0 0 12px rgba(0, 242, 254, 0.3);
+}
+
+.checkbox-group {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    background: rgba(0, 0, 0, 0.25);
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid var(--border-subtle);
+}
+
+.checkbox-group input {
+    cursor: pointer;
+    width: 18px;
+    height: 18px;
+    accent-color: var(--aws-cyan);
+}
+
+.checkbox-group label {
+    margin: 0;
+    color: var(--primary-text);
+    cursor: pointer;
+    font-size: 0.88rem;
+}
+
+button {
+    width: 100%;
+    padding: 14px;
+    background: transparent;
+    color: var(--aws-cyan);
+    border: 2px solid var(--aws-cyan);
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background: rgba(0, 242, 254, 0.12);
+    box-shadow: 0 0 15px rgba(0, 242, 254, 0.4);
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+/* ================= CARDS DE OS ================= */
+.os-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+    align-content: start;
+}
+
+.os-card {
+    background-color: var(--card-bg);
+    padding: 22px;
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    color: var(--primary-text);
+    border: 1px solid var(--border-subtle);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.os-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* Detalhe Superior Azul Neon */
+.os-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: var(--aws-cyan);
+}
+
+.os-card h3 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 1.15rem;
+    color: var(--primary-text);
+}
+
+.os-card p {
+    margin: 10px 0;
+    font-size: 0.9rem;
+    color: var(--secondary-text);
+    display: flex;
+    justify-content: space-between;
+}
+
+.os-card p strong {
+    color: var(--primary-text);
+}
+
+.valor-final {
+    font-size: 1.15rem;
+    color: var(--success-color) !important;
+    font-weight: bold;
+    margin-top: 15px !important;
+    padding-top: 12px;
+    border-top: 1px solid var(--border-subtle);
+}
+
+.badge-desconto {
+    display: inline-block;
+    background-color: var(--discount-bg);
+    color: var(--discount-text);
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-top: 10px;
+}
+
+.empty-message {
+    grid-column: 1 / -1;
+    text-align: center;
+    color: var(--muted-text);
+    font-style: italic;
+    background: rgba(0, 0, 0, 0.2);
+    padding: 40px;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--border-subtle);
+}

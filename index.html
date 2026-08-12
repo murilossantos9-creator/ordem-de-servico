@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ManuService - Ordens de Serviço</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Título Principal -->
+    <header class="header-container">
+        <h1>ManuService</h1>
+        <p>Sistema Digital de Gestão de Ordens de Serviço</p>
+    </header>
+
+    <!-- Conteúdo Principal -->
+    <main class="container">
+        <!-- Lado Esquerdo: Formulário -->
+        <section class="form-section">
+            <h2>Nova Ordem de Serviço</h2>
+            <form id="form-os">
+                <div class="form-group">
+                    <label for="cliente">Nome do Cliente:</label>
+                    <input type="text" id="cliente" required placeholder="Ex: Indústria XYZ">
+                </div>
+
+                <div class="form-group">
+                    <label for="equipamento">Equipamento:</label>
+                    <input type="text" id="equipamento" required placeholder="Ex: Torno Mecânico CNC">
+                </div>
+
+                <div class="form-group">
+                    <label for="valor">Valor Bruto do Serviço (R$):</label>
+                    <input type="number" id="valor" step="0.01" required placeholder="Ex: 1500.00">
+                </div>
+
+                <div class="checkbox-group">
+                    <input type="checkbox" id="pagamento-vista">
+                    <label for="pagamento-vista">Pagamento à vista (10% de desconto)</label>
+                </div>
+
+                <button type="submit">Gerar Ordem de Serviço</button>
+            </form>
+        </section>
+
+        <!-- Lado Direito: Área dos Cards -->
+        <section class="os-section" id="container-os">
+            <p class="empty-message" id="mensagem-vazia">Nenhuma Ordem de Serviço registrada ainda.</p>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
